@@ -14,7 +14,7 @@ export const TokenProvider = ({children}) => {
 
 	return (
 		<TokenContext.Provider value={{tokens, setTokens, loading, setLoading}}>
-			{children}
+			{loading?<></>:children}
 		</TokenContext.Provider>
 	)
 }
