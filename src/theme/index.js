@@ -1,28 +1,32 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 
 const DefaultTheme = createTheme({
-	mode:'light',
-	colors: {
-		primary: {
-			main: '#fff'
-		},
-		secondary: {
-			main: '#ddd'
-		},
-	},
 	palette: {
-		common: {
-			black: '#fff',
-			white: '#000'
+		mode: 'dark'
+	},
+	components: {
+		MuiCard: {
+			styleOverrides: {
+				root:{
+					borderRadius: 20,
+					cursor: 'pointer'
+				}
+			}
 		},
-		palette: {
-			primary: {
-				main: '#fff'
-			},
-			secondary: {
-				main: '#ddd'
-			},
-			mode: 'dark'
+		MuiSkeleton: {
+			styleOverrides: {
+				root:{
+					borderRadius: 20
+				}
+			}
+		},
+		MuiButton: {
+			styleOverrides: {
+				root:{
+					borderRadius: 20,
+					padding: 10
+				}
+			}
 		}
 	}
 });
