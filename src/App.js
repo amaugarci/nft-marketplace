@@ -1,19 +1,18 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Layout from './content/Layout';
 import AppRouter from './router';
 
-const theme = createTheme();
+import {ThemeContextProvider} from "./context/ThemeContext"
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeContextProvider>
 		<CssBaseline />
 		<Layout>
 			<AppRouter></AppRouter>
 		</Layout>
-    </ThemeProvider>
+    </ThemeContextProvider>
   );
 }
 
