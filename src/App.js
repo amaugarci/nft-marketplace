@@ -8,10 +8,10 @@ import {ThemeContextProvider} from "./context/ThemeContext"
 function App() {
   return (
     <ThemeContextProvider>
-		<CssBaseline />
-		<Layout>
-			<AppRouter></AppRouter>
-		</Layout>
+      <CssBaseline />
+      <Layout>
+        <AppRouter></AppRouter>
+      </Layout>
     </ThemeContextProvider>
   );
 }

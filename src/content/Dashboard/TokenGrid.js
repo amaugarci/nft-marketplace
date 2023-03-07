@@ -6,11 +6,7 @@ import TokenItem from '../../component/token/item';
 
 const TokenGrid = (props) => {
 
-	const {tokens, loadTokens} = useContext(TokenContext);
-
-	useEffect(()=>{
-		loadTokens()
-	},[loadTokens])
+	const {tokens} = useContext(TokenContext);
 
 	return (
 		<Grid container spacing={4}>
