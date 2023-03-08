@@ -45,7 +45,10 @@ const TokenItem = ({token}) => {
 					display: 'flex',
 					flexDirection: 'column',
 					overflow:'hidden',
-					position: 'relative'
+					position: 'relative',
+					backgroundImage: 'radial-gradient(100% 100% at 50% 160%,rgba(1,249,255,.192) 0,transparent 100%)',
+					transition: 'all .5s cubic-bezier(0.18, 0.89, 0.32, 1.28)',
+					boxShadow: (up ? '0 0 30px rgba(246, 90, 226, .3)' : '0 0 0 rgba(246, 90, 226, .3)')
 				}}
 				ref={buttonRef}
 				onMouseOver={() => setUp(true)}
@@ -86,7 +89,7 @@ const TokenItem = ({token}) => {
 							{Number(token.windowCollectionStats.volume.unit).toFixed(4)}
 						</Typography>
 					</Button>
-					<Button size="small">Edit</Button>
+					<Button size="small">Add to Cart</Button>
 				</CardActions>
 			</Card>
 		</>

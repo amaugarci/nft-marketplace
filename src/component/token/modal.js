@@ -1,14 +1,21 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import {
     Box,
     Button,
     Grid,
-    Typography
+    IconButton,
+    Typography,
 } from '@mui/material'
+import { useContext, forwardRef } from 'react';
 import EtherIcon from '../icon/ethereum';
+import { TokenContext } from '../../context/TokenContext';
 
-const Modal = ({token}) => {
+const Modal = forwardRef ((props, ref)=> {
+    const {token} = props;
+    const {handleCloseModal} = useContext(TokenContext);
     return (
         <Grid
+            ref={ref}
             container
             sx={{
                 position: 'absolute',
@@ -19,9 +26,10 @@ const Modal = ({token}) => {
                 border: 'none',
                 maxWidth: 'lg',
                 width: '80%',
-                borderRadius: "20px",
+                borderRadius: "0 60px",
                 paddingBottom: "20px",
-                overflow: 'clip'
+                backgroundImage: 'radial-gradient(50% 100% at 100% 100%,rgba(1,249,255,.192) 0,transparent 100%)',
+                overflow: 'hidden'
             }}
             spacing={2}
         >
@@ -30,18 +38,18 @@ const Modal = ({token}) => {
                 right: '-246px',
                 top: '27px'
             }}>
-                <img src="/logo.png" height="798px" style={{mixBlendMode:'lighten'}} className="bounce" alt="Logo" />
+                <img src="/logo.png" height="798px" style={{mixBlendMode:'lighten',backdropFilter:'blur(0)'}} alt="logo" className="bounce" />
             </Box>
             <Grid item sm={12} md={6}>
                 <Box sx={{
                     position: 'relative',
                     overflow: 'hidden',
-                    height: 400
+                    height: '100%',
+                    borderRadius: '0 0 0 40px'
                 }}>
                     <img style={{
                             width: '100%',
                             height: '100%',
-                            borderRadius: "10px",
                             objectFit: 'cover'
                         }}
                         src={token.banner}
@@ -53,37 +61,52 @@ const Modal = ({token}) => {
                             position: 'absolute',
                             bottom: 0,
                             width: '100%',
-                            borderRadius: '0 0 10px 10px',
+                            borderRadius: '0 0 0 40px',
                             backdropFilter: 'blur(50px)',
                             padding: 3
                         }}
                     >
-                        <Button size="small" sx={{display:"flex", alignItems:'center', borderRadius:'10px'}}>
+                        <Button size="small" sx={{display:"flex", alignItems:'center', borderRadius:'10px', textShadow:'0 0 5px black', color:'white'}}>
                             <EtherIcon />
                             <Typography>
                                 {Number(token.windowCollectionStats ? token.windowCollectionStats.volume.unit : 0).toFixed(4)}
                             </Typography>
                         </Button>
-                        <Button size="small" sx={{borderRadius:'10px'}}>Edit</Button>
+                        <Button size="small" sx={{borderRadius:'10px', borderRadius:'10px', textShadow:'0 0 5px black', color:'white'}}>
+                            Add to Cart
+                        </Button>
                     </Box>
                 </Box>
-                <Box sx={{textAlign:'center', mt:2}}>
-                    <Typography variant="h5" component="h2">
+            </Grid>
+            <Grid item sm={12} md={6}>
+                <Box sx={{mt:2}}>
+                    <Typography variant="h5" component="h2" sx={{
+                        pl: '30px',
+                        pr: '50px'
+                    }}>
                         {token.name}
                     </Typography>
                 </Box>
 
-            </Grid>
-            <Grid item sm={12} md={6}>
                 <Box sx={{
                     height: '100%',
                     padding: 2,
                     paddingRight: 4,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between'
                 }}>
-                    <Typography variant="body1" component="p">
+                    <IconButton style={{
+                        position: 'absolute',
+                        right: '30px',
+                        top: '30px',
+                        color: 'white',
+                        lineHeight: '1rem',
+                    }}
+                    onClick={handleCloseModal}
+                    >
+                        &times;
+                    </IconButton>
+                    <Typography variant="body1" component="p" sx={{
+                        p: 2
+                    }}>
                         The PUMA Nitro Collection is the digital twin to the physical NFRNO and Fastroid shoes that can be claimed with PUMA Materializer NFT in 2023.
                         <br/>
                         Both designs were developed with the metaverse in mind. Designed first in 3D and tested in augmented reality before physical samples were ever created. The physical products are a first-of-their-kind experiment with new materials, technology, and design.
@@ -99,6 +122,6 @@ const Modal = ({token}) => {
             </Grid>
         </Grid>
     )
-}
+})
 
 export default Modal;

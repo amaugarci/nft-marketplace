@@ -2,7 +2,10 @@ import { createTheme } from "@mui/material/styles";
 
 const DefaultTheme = createTheme({
 	palette: {
-		mode: 'dark'
+		mode: 'dark',
+		background: {
+			default: "black"
+		}
 	},
 	components: {
 		MuiCard: {
@@ -26,12 +29,23 @@ const DefaultTheme = createTheme({
 					borderRadius: 10,
 					px: 10,
 					py: 3,
-					color: 'rgb(88, 208, 234)',
+					color: 'rgb(88 208 234)',
 				},
 				outlined:{
 					borderWidth: 2,
-					borderColor: 'rgb(88, 208, 234)',
+					borderColor: 'rgb(88 208 234)',
 					boxShadow: '0 0 3px white, inset 0 0 3px white'
+				}
+			}
+		},
+		MuiPaper: {
+			styleOverrides: {
+				root: {
+					backgroundColor: 'rgb(25 26 32 .5)',
+					backgroundImage: 'none'
+				},
+				elevation4: {
+					backgroundColor: 'rgb(25 26 32 .5)'
 				}
 			}
 		}
