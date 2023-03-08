@@ -23,12 +23,31 @@ const DefaultTheme = createTheme({
 		MuiButton: {
 			styleOverrides: {
 				root:{
-					borderRadius: 20,
-					padding: 10
+					borderRadius: 10,
+					px: 10,
+					py: 3,
+					color: 'rgb(88, 208, 234)',
+				},
+				outlined:{
+					borderWidth: 2,
+					borderColor: 'rgb(88, 208, 234)',
+					boxShadow: '0 0 3px white, inset 0 0 3px white'
 				}
 			}
 		}
-	}
+	},
+	typography: {
+		fontFamily: [
+			'Orbitron'
+		].join(','),
+		h3: {
+			fontWeight: 900,
+		},
+		body1: {
+			fontFamily: 'Nunito',
+			lineHeight: 2,
+		}
+	},
 });
 
 const theme = {DefaultTheme};
