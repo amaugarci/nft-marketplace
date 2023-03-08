@@ -5,17 +5,21 @@ import {
 	CardActions,
 	CardContent,
 	CardMedia,
-	Typography
+	Typography,
+	Modal,
+	Grid
 } from "@mui/material"
 
+import { TokenContext } from '../../context/TokenContext';
 import TouchRipple from "@mui/material/ButtonBase/TouchRipple";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 
 import EtherIcon from "../icon/ethereum";
 
 const TokenItem = ({token}) => {
 	const [up, setUp] = useState(false);
-
+	const {handleOpenModal} = useContext(TokenContext);
+	// Ripple Effect
 	const rippleRef = useRef(null);
 	const buttonRef = useRef(null);
 
@@ -47,14 +51,14 @@ const TokenItem = ({token}) => {
 					position: 'relative'
 				}}
 				ref={buttonRef}
-				className="wave-effect"
 				onMouseOver={() => setUp(true)}
 				onMouseOut={() => setUp(false)}
+				onClick={() => handleOpenModal(token)}
 			>
 				<TouchRipple ref={rippleRef} center sx={{
 					width: 'full',
 					height: 'full',
-					zIndex: 9999
+					zIndex: 10
 				}} />
 				<CardMedia
 					component="img"
@@ -72,7 +76,7 @@ const TokenItem = ({token}) => {
 				>
 				</CardMedia>
 
-				<CardContent sx={{ flexGrow: 1 }}>
+				<CardContent sx={{flexGrow:1, px:'16px', pt:'8px', pb:0}}>
 					<Typography gutterBottom variant="h5" component="h2">
 						{token.name}
 					</Typography>
