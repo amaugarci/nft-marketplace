@@ -8,12 +8,8 @@ export const ThemeContextProvider = ({children}) => {
 
 	const [themeName, setThemeName] = useState('DefaultTheme');
 
-	// useEffect((()=>
-	// 	console.log (Themes[themeName])
-	// ),[themeName])
-
 	return (
-		<ThemeContext.Provider value={themeName}>
+		<ThemeContext.Provider value={{themeName, setThemeName}}>
 			<ThemeProvider theme={Themes[themeName]}>
 				{children}
 			</ThemeProvider>

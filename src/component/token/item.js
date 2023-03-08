@@ -1,13 +1,10 @@
 import {
-	Box,
 	Button,
 	Card,
 	CardActions,
 	CardContent,
 	CardMedia,
-	Typography,
-	Modal,
-	Grid
+	Typography
 } from "@mui/material"
 
 import { TokenContext } from '../../context/TokenContext';
