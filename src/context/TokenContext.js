@@ -1,32 +1,32 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {useState, createContext, useCallback, useEffect} from "react";
-import tokenData from "../data/tokens";
+import {useState, createContext, useCallback, useEffect} from 'react';
 import {
     Box,
     Button,
     Grid,
+    Modal,
     Skeleton,
-    Typography,
-    Modal
+    Typography
 } from '@mui/material'
-import TokenModal from '../component/token/modal';
-
 import { Refresh } from '@mui/icons-material';
+
+import TokenModal from '../component/token/modal';
+import tokenData from '../data/tokens';
 
 export const TokenContext = createContext(null);
 
-const paginateData = (skip, limit) => {
-    return tokenData.data.trendingCollectionsByCategoryTagBatched.slice(skip, skip + limit);
+const getCountArray = (cnt) => {
+    let temp = [];
+    for (let i = 0; i < cnt; i++) temp.push (i);
+    return temp;
 }
 
 const min = (a, b) => {
     return a < b ? a : b;
 }
 
-const getCountArray = (cnt) => {
-    let temp = [];
-    for (let i = 0; i < cnt; i++) temp.push (i);
-    return temp;
+const paginateData = (skip, limit) => {
+    return tokenData.data.trendingCollectionsByCategoryTagBatched.slice(skip, skip + limit);
 }
 
 export const TokenProvider = ({children}) => {
@@ -35,29 +35,29 @@ export const TokenProvider = ({children}) => {
     const [skip, setSkip] = useState(0);
     const [token, setToken] = useState({});
     const limit = 12,
-        totalCount = tokenData.data.trendingCollectionsByCategoryTagBatched.length;
+        totalCount = tokenData.data.trendingCollectionsByCategoryTagBatched.length
 
     const loadTokens = useCallback(() => {
         setLoading(true);
-        console.log('loading tokens '+skip + ":" + limit)
         const data = paginateData(skip, limit);
+
         if (skip === 0)
             setToken(data[0]);
-        setTimeout(()=>{
+
+        setTimeout(() => {
             setTokens(tokens.concat(data));
             setLoading(false);
         }, 1500)
     }, [skip])
 
     useEffect(() => {
-        console.log ('skip changed');
         loadTokens();
     }, [skip, loadTokens])
 
     // Skeletons
     const [skeletons, setSkeletons] = useState([]);
     useEffect(() => {
-        setSkeletons(getCountArray(min(limit, totalCount - skip - limit)))
+        setSkeletons(getCountArray(min(limit, totalCount - skip - limit)));
     }, [tokens])
 
 	// Handling Modal Show
@@ -104,8 +104,9 @@ export const TokenProvider = ({children}) => {
                 display: 'flex',
                 mt: 3
             }}>
-                <Button disabled={loading} variant="outlined" onClick={() => setSkip(min(skip + limit, totalCount))}>
-                    <Refresh />Load More
+                <Button disabled={loading} sx={(skip + limit) >= totalCount ? {display:'none'} : {}} variant="outlined" onClick={() => setSkip(min(skip + limit, totalCount))}>
+                    <Refresh />&nbsp;
+                    Load More
                 </Button>
             </Box>
         </TokenContext.Provider>

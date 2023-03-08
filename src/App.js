@@ -1,9 +1,9 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Layout from './content/Layout';
-import AppRouter from './router';
 
-import {ThemeContextProvider} from "./context/ThemeContext"
+import AppRouter from './router';
+import Layout from './content/Layout';
+import { ThemeContextProvider } from "./context/ThemeContext"
 
 function App() {
   return (

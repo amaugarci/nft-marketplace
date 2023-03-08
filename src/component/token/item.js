@@ -5,13 +5,12 @@ import {
 	CardContent,
 	CardMedia,
 	Typography
-} from "@mui/material"
+} from '@mui/material'
+import TouchRipple from '@mui/material/ButtonBase/TouchRipple';
+import { useState, useRef, useContext } from 'react';
 
+import EtherIcon from '../icon/ethereum';
 import { TokenContext } from '../../context/TokenContext';
-import TouchRipple from "@mui/material/ButtonBase/TouchRipple";
-import { useState, useRef, useContext } from "react";
-
-import EtherIcon from "../icon/ethereum";
 
 const TokenItem = ({token}) => {
 	const [up, setUp] = useState(false);
@@ -23,7 +22,6 @@ const TokenItem = ({token}) => {
 	const triggerRipple = () => {
 		const container = buttonRef.current;
 		const rect = container.getBoundingClientRect();
-		console.log(rect);
 
 		rippleRef.current.start(
 			{
