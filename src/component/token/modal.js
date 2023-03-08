@@ -30,7 +30,7 @@ const Modal = ({token}) => {
                 right: '-246px',
                 top: '27px'
             }}>
-                <img src="/logo.png" height="798px" style={{mixBlendMode:'lighten'}} className="bounce" />
+                <img src="/logo.png" height="798px" style={{mixBlendMode:'lighten'}} className="bounce" alt="Logo" />
             </Box>
             <Grid item sm={12} md={6}>
                 <Box sx={{
