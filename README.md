@@ -10,7 +10,7 @@ I hope you could pleased to understand this point as well
 
 ## How to clone this repository
 
-### `git clone https://github.com/dragon1227/nft-marketplace-frontend.git`
+### `git clone https://github.com/dragon1227/nft-marketplace.git`
 
 In the project directory, you can run:
 
