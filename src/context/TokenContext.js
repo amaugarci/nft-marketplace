@@ -10,6 +10,8 @@ import {
 } from '@mui/material'
 import TokenModal from '../component/token/modal';
 
+import { Refresh } from '@mui/icons-material';
+
 export const TokenContext = createContext(null);
 
 const paginateData = (skip, limit) => {
@@ -82,10 +84,10 @@ export const TokenProvider = ({children}) => {
             <Modal
                 open={modal}
                 onClose={handleCloseModal}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
             >
-                <TokenModal token={token} />
+                <>
+                    <TokenModal tabIndex={4} token={token} />
+                </>
             </Modal>
 
             <Typography variant="body1" sx={{
@@ -94,13 +96,16 @@ export const TokenProvider = ({children}) => {
             }}>
                 { min(skip + limit, totalCount) } / { totalCount }
             </Typography>
+            
             <Box sx={{
                 w: 'full',
                 justifyContent: 'center',
                 display: 'flex',
                 mt: 3
             }}>
-                <Button disabled={loading} variant="outlined" onClick={() => setSkip(min(skip + limit, totalCount))}>Load More</Button>
+                <Button disabled={loading} variant="outlined" onClick={() => setSkip(min(skip + limit, totalCount))}>
+                    <Refresh />Load More
+                </Button>
             </Box>
         </TokenContext.Provider>
     )

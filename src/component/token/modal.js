@@ -6,14 +6,16 @@ import {
     IconButton,
     Typography,
 } from '@mui/material'
-import { useContext } from 'react';
+import { useContext, forwardRef } from 'react';
 import EtherIcon from '../icon/ethereum';
 import { TokenContext } from '../../context/TokenContext';
 
-const Modal = ({token}) => {
+const Modal = forwardRef ((props, ref)=> {
+    const {token} = props;
     const {handleCloseModal} = useContext(TokenContext);
     return (
         <Grid
+            ref={ref}
             container
             sx={{
                 position: 'absolute',
@@ -120,6 +122,6 @@ const Modal = ({token}) => {
             </Grid>
         </Grid>
     )
-}
+})
 
 export default Modal;

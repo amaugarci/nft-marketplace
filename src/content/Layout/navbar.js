@@ -5,7 +5,9 @@ import Typography from '@mui/material/Typography';
 const Navbar = () => {
     return (
         <AppBar position="fixed" sx={{
-            py: '10px'
+            py: '10px',
+            backgroundColor: 'rgba(0,0,0,.4)',
+            backdropFilter: 'blur(10px)'
         }}>
             <Toolbar>
                 <img src="https://www.alturanft.com/logo-svg.svg" alt="Altura_logo" />
