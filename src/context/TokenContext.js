@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {useState, createContext, useCallback, useEffect} from "react";
 import tokenData from "../data/tokens";
 import {
