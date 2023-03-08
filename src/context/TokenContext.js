@@ -67,7 +67,7 @@ export const TokenProvider = ({children}) => {
 	const handleCloseModal = () => setModal(false);
 
     return (
-        <TokenContext.Provider value={{tokens, loading, loadTokens, handleOpenModal}}>
+        <TokenContext.Provider value={{tokens, loading, loadTokens, handleOpenModal, handleCloseModal}}>
             <Grid container spacing={4}>
                 {children}
                 {loading && 

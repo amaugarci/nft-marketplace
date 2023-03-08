@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
+#root {
+	width: 100vw;
+}
+
 body {
 	margin: 0;
 	font-family: 'Orbitron', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+	background-image: radial-gradient(50% 50% at 0% 0%,rgba(1,249,255,.192) 0,transparent 100%);
+	background-attachment: fixed;
 }
 
 code {

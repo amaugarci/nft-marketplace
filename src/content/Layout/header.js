@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <Box
         sx={{
-            bgcolor: 'background.paper',
+            background: 'none',
             pt: 3,
             pb: 2,
         }}
@@ -21,7 +21,7 @@ const Header = () => {
                 >
                     NFT Marketplace
                 </Typography>
-                <Typography variant="h6" color="text.secondary" paragraph>
+                <Typography variant="h6" color="rgb(88 208 234)" paragraph>
                     Here you can explore the tokens.
                 </Typography>
             </Container>
