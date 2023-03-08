@@ -2,22 +2,22 @@ import {
     Box,
     Container,
     Typography
-} from "@mui/material";
+} from '@mui/material'
 
 const Header = () => {
     return (
         <Box
-        sx={{
-            background: 'none',
-            pt: 3,
-            pb: 2,
-        }}
+            sx={{
+                background: 'none',
+                pt: 3,
+                pb: 2,
+            }}
         >
             <Container maxWidth="lg">
                 <Typography
-                variant="h3"
-                color="text.primary"
-                gutterBottom
+                    variant="h3"
+                    color="text.primary"
+                    gutterBottom
                 >
                     NFT Marketplace
                 </Typography>

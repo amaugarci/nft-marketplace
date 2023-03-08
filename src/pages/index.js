@@ -1,16 +1,7 @@
-import { TokenProvider } from '../context/TokenContext';
 import TokenGrid from '../content/Dashboard/TokenGrid';
+import { TokenProvider } from '../context/TokenContext';
 
-import { useTheme } from '@mui/material';
-import { useEffect } from 'react';
-
-const Dashboard = ({props}) => {
-
-	const theme = useTheme();
-
-	useEffect(() => {
-		console.log(theme);
-	}, [theme])
+const Dashboard = () => {
 
 	return (
 		<TokenProvider>

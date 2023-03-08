@@ -1,36 +1,40 @@
 import {
     Box,
+    Link,
     Typography
-} from "@mui/material";
-import Link from '@mui/material/Link';
+} from '@mui/material'
 
 function Copyright() {
     return (
-      <Typography variant="body2" color="text.secondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://github.com/dragon1227">
-          dragon1227's github
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
+        <Typography variant="body2" color="text.secondary" align="center" sx={{
+            fontFamily: 'Nunito'
+        }}>
+            {'Copyright © 2023 '}
+            <Link color="inherit" href="https://github.com/dragon1227">
+                dragon1227's github
+            </Link>{' '}
+            {'.'}
+        </Typography>
+    )
 }
 
 const Footer = () => {
     return (
-        <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+        <Box sx={{bgcolor:'background.paper', p:6}} component="footer">
             <Typography variant="h6" align="center" gutterBottom>
                 NFT Marketplace
             </Typography>
-            <Typography
-            variant="subtitle1"
-            align="center"
-            color="text.secondary"
-            component="p"
-            >
-                Thx to the Altura!
-            </Typography>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="discord" height="40px" />
+                <Typography variant="body1">
+                    dragon1227#8424
+                </Typography>
+            </Box>
             <Copyright />
         </Box>
     )
