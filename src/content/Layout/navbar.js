@@ -40,13 +40,13 @@ const Navbar = () => {
                     alignItems: 'center',
                     gap: '20px'
                 }}>
-                    <Avatar alt="James. F" src="https://avatars.githubusercontent.com/u/122885050?v=4" sx={{width:'40px', height:'40px'}} />
-                    <Link href="mailto:dragon99steel@gmail.com" sx={{
+                    <Avatar alt="James. F" src="https://avatars.githubusercontent.com/u/101194030?v=4" sx={{width:'40px', height:'40px'}} />
+                    <Link href="mailto:arescolin1008@gmail.com" sx={{
                         color: 'white',
                         textDecoration: 'none'
                     }}>
                         <Typography variant="body1">
-                            <span style={{color:'gray'}}>Mail to : </span>James. F.
+                            <span style={{color:'gray'}}>Mail to : </span>Ares C.
                         </Typography>
                     </Link>
                 </Box>
