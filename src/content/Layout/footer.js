@@ -10,8 +10,8 @@ function Copyright() {
             fontFamily: 'Nunito'
         }}>
             {'Copyright © 2023 '}
-            <Link color="inherit" href="https://github.com/dragon1227">
-                dragon1227's github
+            <Link color="inherit" href="https://github.com/Ares90125">
+                Ares90125's github
             </Link>{' '}
             {'.'}
         </Typography>
@@ -32,7 +32,7 @@ const Footer = () => {
             }}>
                 <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="discord" height="40px" />
                 <Typography variant="body1">
-                    dragon1227#8424
+                    Ares#3451
                 </Typography>
             </Box>
             <Copyright />
